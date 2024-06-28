@@ -1,0 +1,32 @@
+import customtkinter as ctk
+
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("dark-blue")
+
+def submit():
+    key = entry_key.get()
+    if key == "Wtv u want":
+        root.destroy() 
+    else:
+        print("Invalid key")
+
+root = ctk.CTk()
+root.title("Login System")
+root.geometry("800x400")  
+
+frame = ctk.CTkFrame(root, width=500, height=300)  
+frame.pack(pady=50)  
+
+label_title = ctk.CTkLabel(frame, text="Test", font=("Arial", 20), text_color="#A020F0", bg_color="#212121")
+label_title.grid(row=0, columnspan=2, pady=10, padx=30)
+
+label_key = ctk.CTkLabel(frame, text="Key:")
+label_key.grid(row=1, column=0, pady=5, padx=30)
+
+entry_key = ctk.CTkEntry(frame, show="*")
+entry_key.grid(row=1, column=1, pady=30, padx=30)
+
+button_submit = ctk.CTkButton(frame, fg_color="#A020F0", hover_color="#8F00FF", text="Submit", command=submit)
+button_submit.grid(row=2, columnspan=2, pady=10, padx=30)
+
+root.mainloop()
